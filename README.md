@@ -13,16 +13,22 @@ Se ha Llevando a Docker y desplegando en un contenedor.
 
 ## 🚀 Despliegue Rápido
 
-```bash
-docker run -d -p 3000:3000 --name clima-app tu_usuario/clima:latest
 
+docker run -d -p 3000:3000 --name clima-app tu_usuario/clima:latest
 Accede en: http://localhost:3000
 
-🔧 Configuración
+
+## 🔧 Configuración
 Se cuenta con un archivo de Variables de Entorno, .env el cual administra los datos de autenticacion al consumo de la API
 puede configurar sus datos despues de hacer el registro en la pagina del fabricante https://openweathermap.org
 
 DOCKER_USERNAME=hbernalp
 DOCKER_PASSWORD=xxxxxxxxxxxxx
+
+
+
+
+
+
 
 
