@@ -1,6 +1,7 @@
 # 🌤️ Clima App - Dockerizada
 
-Aplicación web de clima construida con React utilizando el framwork Vite, Llevandola a Docker y desplegable en un contenedor.
+Aplicación web de consulta del clima con tres ciudades al mismo tiempo, esta construida con React, utilizando framework Vite.
+Se ha Llevando a Docker y desplegando en un contenedor.
 
 ![Docker](https://img.shields.io/badge/Docker-✓-blue?logo=docker)
 ![Vite](https://img.shields.io/badge/Vite-✓-yellow?logo=vite)
@@ -16,3 +17,12 @@ Aplicación web de clima construida con React utilizando el framwork Vite, Lleva
 docker run -d -p 3000:3000 --name clima-app tu_usuario/clima:latest
 
 Accede en: http://localhost:3000
+
+🔧 Configuración
+Se cuenta con un archivo de Variables de Entorno, .env el cual administra los datos de autenticacion al consumo de la API
+puede configurar sus datos despues de hacer el registro en la pagina del fabricante https://openweathermap.org
+
+DOCKER_USERNAME=hbernalp
+DOCKER_PASSWORD=xxxxxxxxxxxxx
+
+
