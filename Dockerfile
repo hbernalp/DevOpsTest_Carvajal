@@ -1,25 +1,20 @@
+# Construcción utilizando framework vite
+FROM node:alpine AS builder
+
+WORKDIR /app
+COPY package*.json .
+RUN npm ci
+COPY . .
+RUN npm run build  # Vite genera los archivos en /app/dist
+
+# Enviando a produccion
 FROM node:alpine
 
-# Set the working directory
 WORKDIR /app
-
-# Copy all.json dependensies and sending to container
-COPY package*.json .
-
-#Install dependencies to production only
-RUN npm ci 
-RUN npm install -g serve
-
-COPY . .
-
-#Create build version
-RUN npm run build
-
-#Exclude dependecies to development
-RUN npm prune --production
+COPY --from=builder /app/dist /app/dist
+COPY --from=builder /app/package*.json .
+RUN npm install -g serve  # Instalar 'serve' globalmente
 
 EXPOSE 3000
-
-#Principal prosses
 CMD ["serve", "-s", "dist", "-l", "3000", "--no-clipboard"]
 
